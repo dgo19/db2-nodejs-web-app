@@ -1,4 +1,4 @@
-FROM docker.io/node:buster
+FROM docker.io/node:latest
 
 WORKDIR /opt
 RUN git clone https://github.com/DB2-Samples/db2nodejs.git && \
@@ -9,13 +9,13 @@ RUN git clone https://github.com/DB2-Samples/db2nodejs.git && \
     mkdir -p /usr/local/bin && \
     chmod g=u /etc/passwd
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY uid_entrypoint.sh /usr/local/bin/uid_entrypoint.sh
 
 USER 1001
 EXPOSE 8888
 
 WORKDIR /opt/db2nodejs
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/uid_entrypoint.sh"]
 
 CMD npm run start
