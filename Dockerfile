@@ -6,7 +6,7 @@ RUN git clone https://github.com/DB2-Samples/db2nodejs.git && \
     npm install && \
     chgrp -R 0 /opt/db2nodejs && \
     chmod -R g=u /opt/db2nodejs && \
-    mkdir -p /usr/local/bin \
+    mkdir -p /usr/local/bin && \
     chmod g=u /etc/passwd
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
