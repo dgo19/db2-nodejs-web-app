@@ -8,7 +8,8 @@ RUN apt-get update && \
     chgrp -R 0 /opt/db2nodejs && \
     chmod -R g=u /opt/db2nodejs && \
     mkdir -p /usr/local/bin && \
-    chmod g=u /etc/passwd
+    chmod g=u /etc/passwd && \
+    apt-get clean
 
 COPY uid_entrypoint.sh /usr/local/bin/uid_entrypoint.sh
 
