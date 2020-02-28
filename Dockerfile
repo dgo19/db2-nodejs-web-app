@@ -2,7 +2,7 @@ FROM docker.io/node:latest
 
 WORKDIR /opt
 RUN apt-get update && \
-    apt-get dist-upgrade && \
+    apt-get -y dist-upgrade && \
     apt-get clean
     
 RUN git clone https://github.com/DB2-Samples/db2nodejs.git && \
