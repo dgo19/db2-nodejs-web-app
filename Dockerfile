@@ -2,7 +2,10 @@ FROM docker.io/node:latest
 
 WORKDIR /opt
 RUN apt-get update && \
-    git clone https://github.com/DB2-Samples/db2nodejs.git && \
+    apt-get dist-upgrade && \
+    apt-get clean
+    
+RUN git clone https://github.com/DB2-Samples/db2nodejs.git && \
     cd db2nodejs && \
     npm install && \
     chgrp -R 0 /opt/db2nodejs && \
